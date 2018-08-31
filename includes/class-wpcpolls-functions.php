@@ -71,7 +71,10 @@ add_action('wp_enqueue_scripts', 'wpcpolls_frontend_styles_scripts');
 ADD AJAX FUNCTIONS
 -------------------------------------------------------------- */
 function wpcpolls_select_option_function() {
-    echo 'hola';
+    global $wpdb;
+
+
+
     die();
 }
 
