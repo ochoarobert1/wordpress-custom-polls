@@ -31,7 +31,7 @@ ADD STYLE TO SHORTCODE FRONTEND
             margin-bottom: 15px;
 
             & input {
-                visibility: hidden;
+                display: none;
             }
 
             & .wpcpolls-title {
@@ -40,7 +40,6 @@ ADD STYLE TO SHORTCODE FRONTEND
                 justify-content: center;
                 background: @gray;
                 max-width: 90%;
-                padding: 10px;
                 cursor: pointer;
 
                 &:hover {
@@ -51,7 +50,18 @@ ADD STYLE TO SHORTCODE FRONTEND
                     color: @white;
                     margin-bottom: 0;
                     cursor: pointer;
+                    display: block;
+                    width: 100%;
+                    text-align: center;
+                    padding: 10px;
+
                 }
+            }
+        }
+
+        & .selected {
+            & .wpcpolls-title {
+                background: @black;
             }
         }
     }

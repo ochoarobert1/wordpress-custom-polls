@@ -1,22 +1,17 @@
 var id_handler = '';
-
-jQuery('.wpcpolls-list li').on('click', function() {
-    jQuery(this).addClass('selected');
-    id_handler = this.id.split('_');
-
+function wpcpolls_select(id) {
+    jQuery('.wpcpolls-list li').removeClass('selected');
+    jQuery('#item_wpcpolls_option_' + id).addClass('selected');
     jQuery.ajax({
-        url : admin_ajax.ajax_url,
+        url : admin_url.ajax_url,
         type : 'post',
         data : {
-            id_post : id_post,
-            action : 'ajax_posts'
-        },
-        beforeSend : function () {
-            jQuery('.post-container-ajax').append('<div id="loader"><span class="dot dot_1"></span> <span class="dot dot_2"></span> <span class="dot dot_3"></span> <span class="dot dot_4"></span></div>');
+            id_post : jQuery('.wpcpolls-container').attr('id'),
+            id_poll : id,
+            action : 'wpcpolls_select_option'
         },
         success : function (response) {
-            jQuery('#loader').remove();
-            jQuery('.post-container-ajax').append(response);
+            console.log(response);
         }
     });
-});
+}

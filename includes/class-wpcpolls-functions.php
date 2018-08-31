@@ -66,3 +66,14 @@ function wpcpolls_frontend_styles_scripts() {
 }
 
 add_action('wp_enqueue_scripts', 'wpcpolls_frontend_styles_scripts');
+
+/* --------------------------------------------------------------
+ADD AJAX FUNCTIONS
+-------------------------------------------------------------- */
+function wpcpolls_select_option_function() {
+    echo 'hola';
+    die();
+}
+
+add_action('wp_ajax_nopriv_wpcpolls_select_option', 'wpcpolls_select_option_function');
+add_action('wp_ajax_wpcpolls_select_option', 'wpcpolls_select_option_function');
