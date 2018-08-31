@@ -48,3 +48,21 @@ add_action('admin_menu', 'wpcpolls_admin_secion_handler');
 function wpcpolls_admin_dashboard_function () {
     echo 'hola panas';
 }
+
+/* --------------------------------------------------------------
+ADD PLUGIN PAGE IN ADMIN
+-------------------------------------------------------------- */
+
+function wpcpolls_frontend_styles_scripts() {
+    $version_remove = '1.0.0';
+
+    wp_enqueue_style('wpcpolls-css', plugins_url( '/wordpress-custom-polls/css/wpcpolls-frontend.css', '__FILE__'), false, $version_remove, 'all');
+
+    wp_enqueue_script('wpcpolls-js', plugins_url( '/wordpress-custom-polls/js/wpcpolls-frontend.js', '__FILE__'), array('jquery'), $version_remove, true);
+
+    wp_localize_script('wpcpolls-js', 'admin_url', array(
+        'ajax_url' => admin_url('admin-ajax.php')
+    ));
+}
+
+add_action('wp_enqueue_scripts', 'wpcpolls_frontend_styles_scripts');

@@ -31,8 +31,7 @@ require_once plugin_dir_path( __FILE__ ) . 'includes/class-wpcpolls-functions.ph
 /* --------------------------------------------------------------
     AGREGAR FUNCION DEL SHORTCODE
     -------------------------------------------------------------- */
-//    include( plugin_dir_path( __FILE__ ) . 'inc/class-wcp-shortcode.php' );
-
+require_once plugin_dir_path( __FILE__ ) . 'includes/class-wpcpolls-shortcode.php';
 
 /* --------------------------------------------------------------
     ACTIVATE PLUGIN PROCESS

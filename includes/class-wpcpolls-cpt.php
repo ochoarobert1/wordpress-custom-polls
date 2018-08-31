@@ -92,7 +92,7 @@ function wpcpolls_metaboxes_handler($post) {
             <label for="option_1">a)</label>
         </th>
         <td>
-            <input value="<?php echo get_post_meta($post->ID, 'wpcpolls_option_1', true); ?>" type="text" id="option_1" name="wpcpolls_option_1" class="regular-text" />
+            <input value="<?php echo esc_attr(get_post_meta($post->ID, 'wpcpolls_option_1', true)); ?>" type="text" id="option_1" name="wpcpolls_option_1" class="regular-text" />
         </td>
     </tr>
     <tr>
@@ -100,7 +100,7 @@ function wpcpolls_metaboxes_handler($post) {
             <label for="option_2">b)</label>
         </th>
         <td>
-            <input value="<?php echo get_post_meta($post->ID, 'wpcpolls_option_2', true); ?>" type="text" id="option_2" name="wpcpolls_option_2" class="regular-text" />
+            <input value="<?php echo esc_attr(get_post_meta($post->ID, 'wpcpolls_option_2', true)); ?>" type="text" id="option_2" name="wpcpolls_option_2" class="regular-text" />
         </td>
     </tr>
     <tr>
@@ -108,7 +108,7 @@ function wpcpolls_metaboxes_handler($post) {
             <label for="option_3">c)</label>
         </th>
         <td>
-            <input value="<?php echo get_post_meta($post->ID, 'wpcpolls_option_3', true); ?>" type="text" id="option_3" name="wpcpolls_option_3" class="regular-text" />
+            <input value="<?php echo esc_attr(get_post_meta($post->ID, 'wpcpolls_option_3', true)); ?>" type="text" id="option_3" name="wpcpolls_option_3" class="regular-text" />
         </td>
     </tr>
     <tr>
@@ -116,7 +116,7 @@ function wpcpolls_metaboxes_handler($post) {
             <label for="option_4">d)</label>
         </th>
         <td>
-            <input value="<?php echo get_post_meta($post->ID, 'wpcpolls_option_4', true); ?>" type="text" id="option_4" name="wpcpolls_option_4" class="regular-text" />
+            <input value="<?php echo esc_attr(get_post_meta($post->ID, 'wpcpolls_option_4', true)); ?>" type="text" id="option_4" name="wpcpolls_option_4" class="regular-text" />
         </td>
     </tr>
 </table>
