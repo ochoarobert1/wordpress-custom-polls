@@ -5,6 +5,8 @@ ADD STYLE TO SHORTCODE FRONTEND
 @black: #000000;
 @white: #FFFFFF;
 @gray: #818181;
+@yellow: #FF9800;
+@orange: #FF5722;
 
 /* ANIMATION */
 @keyframes wpcpolls-move {
@@ -38,12 +40,12 @@ ADD STYLE TO SHORTCODE FRONTEND
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                background: @gray;
+                background: @yellow;
                 max-width: 90%;
                 cursor: pointer;
 
                 &:hover {
-                    background: @black;
+                    background: @orange;
                 }
 
                 & label {
@@ -123,6 +125,7 @@ ADD STYLE TO SHORTCODE FRONTEND
                     border-top-right-radius: 5px;
                     border-bottom-right-radius: 5px;
                     overflow: hidden;
+                    transition: all .3s ease-in-out;
                 }
             }
         }
@@ -138,5 +141,31 @@ ADD STYLE TO SHORTCODE FRONTEND
                 font-size: 1.1rem;
             }
         }
+    }
+}
+
+.lds-dual-ring {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+}
+.lds-dual-ring:after {
+    content: " ";
+    display: block;
+    width: 20px;
+    height: 20px;
+    margin: 1px;
+    border-radius: 50%;
+    border: 3px solid @yellow;
+    border-color: @yellow transparent @yellow transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
     }
 }
