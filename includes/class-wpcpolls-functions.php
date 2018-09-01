@@ -98,7 +98,7 @@ function wpcpolls_set_values($poll_id, $poll_option) {
     /* GET THE PERCENTAGE */
     $result = ($result * 100) / $total;
 
-    return $result;
+    return round($result, 2);
 }
 
 /* --------------------------------------------------------------
@@ -153,7 +153,7 @@ add_action('wp_ajax_wpcpolls_update_values', 'wpcpolls_update_values');
 /* --------------------------------------------------------------
 ADD AJAX FUNCTIONS
 -------------------------------------------------------------- */
-function wpcpolls_insert_vote(id_post, id_poll) {
+function wpcpolls_insert_vote($id_post, $id_poll) {
     global $wpdb;
 
 
