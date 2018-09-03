@@ -15,7 +15,7 @@ function wpcpolls_select(id) {
         },
         beforeSend: function () {
             for (i = 1; i <= 4; i++) {
-                jQuery('#percentage_' + i).html('<div class="lds-dual-ring"></div>');
+                jQuery('#percentage_' + i).html('<div class="wpcpolls-dual-ring"></div>');
             }
         },
         success: function (response) {
@@ -44,7 +44,7 @@ jQuery('.wpcpolls-button').on('click', function (e) {
             action: 'wpcpolls_insert_vote'
         },
         beforeSend: function () {
-            jQuery('.wpcpolls-result').html('<div class="lds-dual-ring"></div>');
+            jQuery('.wpcpolls-result').html('<div class="wpcpolls-dual-ring"></div>');
         },
         success: function (response) {
             jQuery('.wpcpolls-result').html('<div class="sucess"><h2>Su voto ha sido procesado</h2></div>');

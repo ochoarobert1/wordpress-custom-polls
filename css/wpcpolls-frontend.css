@@ -117,13 +117,29 @@ ADD STYLE TO SHORTCODE FRONTEND
   background: #000000;
   color: #ffffff;
 }
-.lds-dual-ring {
+.wpcpolls-container .wpcpolls-result {
+  margin: 10px 0;
+}
+.wpcpolls-container .wpcpolls-result .sucess {
+  background: #ff9800;
+  color: currentColor;
+  padding: 10px 15px;
+  text-align: center;
+}
+.wpcpolls-container .wpcpolls-result .sucess h2 {
+  font-weight: 300;
+  margin-bottom: 0;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+.wpcpolls-dual-ring {
   display: inline-block;
   width: 20px;
   height: 20px;
   margin-left: 10px;
 }
-.lds-dual-ring:after {
+.wpcpolls-dual-ring:after {
   content: " ";
   display: block;
   width: 20px;
@@ -132,9 +148,9 @@ ADD STYLE TO SHORTCODE FRONTEND
   border-radius: 50%;
   border: 3px solid #ff9800;
   border-color: #ff9800 transparent #ff9800 transparent;
-  animation: lds-dual-ring 1.2s linear infinite;
+  animation: wpcpolls-dual-ring 1.2s linear infinite;
 }
-@keyframes lds-dual-ring {
+@keyframes wpcpolls-dual-ring {
   0% {
     transform: rotate(0deg);
   }
