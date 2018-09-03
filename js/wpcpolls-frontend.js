@@ -1,4 +1,3 @@
-var id_handler = '';
 var i = 1,
     x = 0;
 
@@ -31,7 +30,8 @@ function wpcpolls_select(id) {
     });
 }
 
-jQuery('.wpcpolls-button').on('click', function(e) {
+jQuery('.wpcpolls-button').on('click', function (e) {
+    "use strict";
     e.preventDefault();
     var row = jQuery('input[name=wpcpolls_option]:checked', '#wpcpolls_form').val();
     var result = row.split("_");
@@ -44,13 +44,10 @@ jQuery('.wpcpolls-button').on('click', function(e) {
             action: 'wpcpolls_insert_vote'
         },
         beforeSend: function () {
-            for (i = 1; i <= 4; i++) {
-                jQuery('#percentage_' + i).html('<div class="lds-dual-ring"></div>');
-            }
             jQuery('.wpcpolls-result').html('<div class="lds-dual-ring"></div>');
         },
         success: function (response) {
-            jQuery('.wpcpolls-result').html('<h2>Gracias por su voto</h2>');
+            jQuery('.wpcpolls-result').html('<div class="sucess"><h2>Su voto ha sido procesado</h2></div>');
         }
     });
 

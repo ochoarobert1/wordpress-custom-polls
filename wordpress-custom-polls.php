@@ -39,3 +39,9 @@ require_once plugin_dir_path( __FILE__ ) . 'includes/class-wpcpolls-shortcode.ph
 
 register_activation_hook(__FILE__, 'wpcpolls_rewrite_flush');
 register_activation_hook(__FILE__, 'wpcpolls_database');
+
+/* --------------------------------------------------------------
+    DEACTIVATE PLUGIN PROCESS
+    -------------------------------------------------------------- */
+
+register_deactivation_hook(__FILE__, 'wpcpolls_remove_database');

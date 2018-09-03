@@ -49,7 +49,7 @@ ADD STYLE TO SHORTCODE FRONTEND
   padding: 10px;
 }
 .wpcpolls-container .wpcpolls-list .selected .wpcpolls-title {
-  background: #000000;
+  background: #ff5722;
 }
 .wpcpolls-container .wpcpolls-progress-bar {
   display: block;
@@ -99,7 +99,7 @@ ADD STYLE TO SHORTCODE FRONTEND
   transition: all 0.3s ease-in-out;
 }
 .wpcpolls-container .wpcpolls-progress-bar .wpcpolls-percentage {
-  max-width: 10%;
+  max-width: 15%;
   display: inline-block;
 }
 .wpcpolls-container .wpcpolls-progress-bar .wpcpolls-percentage span {
@@ -107,6 +107,15 @@ ADD STYLE TO SHORTCODE FRONTEND
   font-weight: 600;
   padding-left: 5px;
   font-size: 1.1rem;
+}
+.wpcpolls-container .wpcpolls-button {
+  padding: 1rem 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 1rem;
+  line-height: 1.1rem;
+  background: #000000;
+  color: #ffffff;
 }
 .lds-dual-ring {
   display: inline-block;

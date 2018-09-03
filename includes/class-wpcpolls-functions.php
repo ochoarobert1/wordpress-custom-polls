@@ -23,6 +23,8 @@ function wpcpolls_database () {
 
     require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
     dbDelta( $sql );
+
+    add_option( 'wpcpolls_version', '1.0.0', '', 'no' );
 }
 
 
@@ -33,6 +35,17 @@ ADD FLUSH REWRITE FOR PERMALINKS
 function wpcpolls_rewrite_flush() {
     wpcpolls_custom_post_type();
     flush_rewrite_rules();
+}
+
+/* --------------------------------------------------------------
+ADD DROP TABLE FOR DEACTIVATION
+-------------------------------------------------------------- */
+function wpcpolls_remove_database() {
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'wpcpolls_meta';
+    $sql = "DROP TABLE IF EXISTS $table_name";
+    $wpdb->query($sql);
+    delete_option('wpcpolls_version');
 }
 
 /* --------------------------------------------------------------
@@ -66,7 +79,7 @@ function wpcpolls_frontend_styles_scripts() {
     ));
 }
 
-add_action('wp_enqueue_scripts', 'wpcpolls_frontend_styles_scripts');
+add_action('init', 'wpcpolls_frontend_styles_scripts');
 
 /* --------------------------------------------------------------
 SET VALUES
@@ -96,7 +109,11 @@ function wpcpolls_set_values($poll_id, $poll_option) {
     }
 
     /* GET THE PERCENTAGE */
-    $result = ($result * 100) / $total;
+    if ($total != 0) {
+        $result = ($result * 100) / $total;
+    } else {
+        $result = 0;
+    }
 
     return round($result, 2);
 }
@@ -144,7 +161,7 @@ function wpcpolls_update_values() {
 
     echo json_encode($result, JSON_PRETTY_PRINT);
 
-    die();
+    wp_die();
 }
 
 add_action('wp_ajax_nopriv_wpcpolls_update_values', 'wpcpolls_update_values');
@@ -153,17 +170,32 @@ add_action('wp_ajax_wpcpolls_update_values', 'wpcpolls_update_values');
 /* --------------------------------------------------------------
 ADD AJAX FUNCTIONS
 -------------------------------------------------------------- */
-function wpcpolls_insert_vote($id_post, $id_poll) {
+
+function wpcpolls_insert_vote() {
+    $poll_id = $_POST['id_post'];
+    $poll_option = $_POST['id_poll'];
+    $now = new DateTime();
+    $ip = $_SERVER['REMOTE_ADDR'];
     global $wpdb;
 
+    /* INSERT VOTE ON POLL */
+    $wpdb->insert(
+        $wpdb->prefix . 'wpcpolls_meta',
+        array(
+            'post_id'   => $poll_id,
+            'time'      => $now->format('Y-m-d H:i:s'),
+            'ip'        => $ip,
+            'selection' =>  $poll_option
+        ),
+        array(
+            '%s',
+            '%s',
+            '%s',
+            '%s'
+        )
+    );
 
-
-
-
-
-
-
-    die();
+    wp_die();
 }
 
 add_action('wp_ajax_nopriv_wpcpolls_insert_vote', 'wpcpolls_insert_vote');

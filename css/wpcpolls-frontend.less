@@ -63,7 +63,7 @@ ADD STYLE TO SHORTCODE FRONTEND
 
         & .selected {
             & .wpcpolls-title {
-                background: @black;
+                background: @orange;
             }
         }
     }
@@ -131,7 +131,7 @@ ADD STYLE TO SHORTCODE FRONTEND
         }
 
         & .wpcpolls-percentage {
-            max-width: 10%;
+            max-width: 15%;
             display: inline-block;
 
             & span {
@@ -142,6 +142,16 @@ ADD STYLE TO SHORTCODE FRONTEND
             }
         }
     }
+
+    .wpcpolls-button {
+        padding: 1rem 2rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 1rem;
+        line-height: 1.1rem;
+        background: @black;
+        color: @white;
+    }
 }
 
 .lds-dual-ring {
@@ -150,6 +160,7 @@ ADD STYLE TO SHORTCODE FRONTEND
     height: 20px;
     margin-left: 10px;
 }
+
 .lds-dual-ring:after {
     content: " ";
     display: block;
@@ -161,10 +172,12 @@ ADD STYLE TO SHORTCODE FRONTEND
     border-color: @yellow transparent @yellow transparent;
     animation: lds-dual-ring 1.2s linear infinite;
 }
+
 @keyframes lds-dual-ring {
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(360deg);
     }
